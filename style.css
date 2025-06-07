@@ -1,0 +1,199 @@
+body{
+    font-family: 'poppins',sans-serif;
+    margin: 0;/*margin et padding ==0 : enlève mes marges par défaut */
+    padding: 0;
+   /* background: color #f9f9f9;*/
+    color: #333; 
+    
+}
+
+.Page-accueil{
+    background-image: url('Fond7.JPG');
+    background-size: contain;
+    background-position: center;
+    text-align: center;
+    font-size: 18px;
+}
+header{
+    background-color: #f7d1eb;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    
+    background-image:url('Fond5.JPG');
+    padding-top: 5px;
+    background-size:1400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+.fond-du-header{
+    background-image:url('Fond5.JPG');
+    padding-top: 5px;
+    background-size:1400px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+header nav{
+    margin-top: 30px;
+}
+/*la barre de navigation */
+header nav a {
+    color: rgb(248, 241, 241);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+
+}
+header nav a:hover{
+    text-decoration: underline;
+}
+
+.logo{
+    display: -webkit-flex;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+
+/*conteneur pour le logo en haut à gauche*/ 
+.logo-contener{
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    z-index: 1000;
+
+}
+.logo-video{
+    width: 150px;
+    height: auto;
+
+}
+main{
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+/* 1.display flex : pour alligner les elemnts d'un conteneur pour que les blocs se placent cote a cote 
+   2. flex wrap:wrap (pour passer a la ligne suivante si tout les elements n'entrent pas  sur la meme ligne) */
+   
+.catalogue{
+    display: inline-flex;
+    flex-wrap: wrap; 
+    gap: 20px;
+    justify-content: center;
+}
+.catalogue article{
+    background: white;
+    border-radius: 35px;
+    box-shadow: 0 4px 8px rgba(0,0,0,1);
+    overflow: hidden;
+    width: 250px;
+    text-align: center;
+    transition:transform 0.2s;
+}
+.catalogue article :hover{
+    transform: scale(1.05);
+}
+.catalogue img{
+    width: 75%;
+    height: 74%;
+    object-fit: cover;
+    border-radius: 30px;
+}
+.catalogue h3{
+    margin: 10px 0;
+}
+.catalogue p{
+    color: #555;
+}
+
+p,h1{
+    color: #020c18;
+}
+
+/*le petit paragraphe en dessous de la page de connexion*/
+.p-De-connexion{
+    text-align: center;
+}
+/*formulaire connexion ,inscription,admin*/
+form{
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    max-width: 400px;
+    margin: 20px auto;
+    background-image: url("Fond7.JPG");
+    background-position: center;
+    
+}
+form label{
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+form input{
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #265ea1;
+}
+form button{
+    background-color: #131012;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+form button:hover{
+    background-color: #2c2f33;
+
+}
+.admin-panel{
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.1);
+
+}
+.admin-panel h2,.admin-panel h3{
+    color: white;
+    
+}
+
+footer{
+    background-color: #25242467;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    margin-top: 30px;
+}
+
+ /*pour modifier l'affichage (pour le cataogue) sur le téléphone ou sur un autre appareil : */
+@media(max-width:768px){
+    .catalogue{
+        flex-direction: column;
+        align-items: center;
+        .logo-video{
+            width: 70px;
+        }
+    }
+}
+a:hover{
+    color: rgb(248, 158, 203);
+}
+.produit{
+    border-radius: 20px;
+    border-top: 200px;
+    
+}
