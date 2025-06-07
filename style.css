@@ -117,6 +117,13 @@ p,h1{
 .p-De-connexion{
     text-align: center;
 }
+.P-A-Propos{
+    text-align: center;
+    color:#020c18 ;
+}
+.h1-A-Propos{
+    text-align: center;
+}
 /*formulaire connexion ,inscription,admin*/
 form{
     background: white;
