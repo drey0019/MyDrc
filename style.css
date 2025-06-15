@@ -98,7 +98,7 @@ main{
 }
 .catalogue img{
     width: 75%;
-    height: 74%;
+    height: 70%;
     object-fit: cover;
     border-radius: 30px;
 }
@@ -129,7 +129,9 @@ form{
     background: white;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+   /* box-shadow: 0 4px 10px rgba(0,0,0,0.15);*/
+    box-shadow: #ee363667;
+
     max-width: 400px;
     margin: 20px auto;
     background-image: url("Fond7.JPG");
