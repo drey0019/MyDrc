@@ -1,9 +1,7 @@
 <?php
 require("config/commande.php");
 $produits=afficher();
-
 ?>
- 
 
 <html lang="en">
 <head>
@@ -17,20 +15,22 @@ $produits=afficher();
         <h1>Notre Catalogue</h1>
         <nav class="lien">
             <a href="index1.html">Accueil</a>
-        
             <a href="connexion3.html">connexion</a>
             <a href="inscription4.html">Inscrition</a>
         </nav>
     </header>
     <main>
-        <section class="catalogue">  
+        <section class="catalogue"> 
             <h2>Vêtements disponibles</h2>
             <br>
         <?php  foreach($produits as $produit): ?>
             <div class="produit">
-            <img src="photo2 du catalogue.jpg" alt="Haut maron">
-            <h3>Haut maron</h3>
-            <p>Prix: 20$</p> <title><?=$produit->nom ?></title>
+            <img src=" <?=produit->image?>" alt="<?=produit->nom?>">photo2 du catalogue.jpg" alt="Haut maron">
+            <h3><?=produit->nom?>Haut maron</h3>
+            <p>prix:<?=produit->prix?>$</p>
+            <p><?=<produit->description?></p>
+            <button class="Ajouter-au-panier" data-id="<?=produit->id?>">Ajouter au panier</button>
+            <p>Prix: 20$</p>
             <button class="Ajouter-au-panier" data-id="1">Ajouter au panier</button>
             </div>
         <?php endforeach; ?>
