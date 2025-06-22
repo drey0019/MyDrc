@@ -1,17 +1,10 @@
 <?php
-// Connexion à la base de données
-conn = new mysqli("localhost", "root", "", "monshop");
-
+//Démarre la session pour gérer les utilisateurs connectés
 session_start();
-include'db.php';
-//Récupérer tousles produits
-$sql="SELECT*FROM produit ORDER BY id ASC";
-$stmt=$pdo->query($sql);
-$produits=$stmt->fetchAll(PDO::FETCH_ASSOC);
-
-
+//importe les fonctions nécessaires (dont afficher())
 require("config/commande.php");
-$produits=afficher();
+//récupère la liste des produits depuis la base de données
+$produits = afficher();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,58 +20,52 @@ $produits=afficher();
         <nav class="lien">
             <a href="index1.html">Accueil</a>
             <a href="connexion3.html">connexion</a>
-            <a href="inscription4.html">Inscrition</a>
-            <div class="panier"> <a href="catalogue.html">🛒
-</a> </div>
+            <a href="inscription4.html">Inscription</a>
+            <div class="panier"><a href="catalogue.html">🛒</a></div>
         </nav>
     </header>
     <?php
-    if (isset($_SESSION['client_nom'])){
-        echo'<div class="message">Bienvenue,' .htmlspecialchars($_SESSION['client_nom']). '</div>',
-    }
+    //Affiche un message de bienvenue si l'utilisateur est connecté
+    if (isset($_SESSION['client_nom'])) {
+        echo '<div class="message">Bienvenue, ' . htmlspecialchars($_SESSION['client_nom']) . '</div>'; }
+   
     ?>
-    <section id=shop class="products">
-        <?php foreach($produits as $produit): ?>
-            <div class="product-card">
-                <?php if ( empty($produit['image'])): ?>
-                    <img src="uploads/<?=htmlspecialchars($produit['image']) ?>" alt="<?=htmlspecialchars($produit['nom'])?>">
-                <?php endif;?>
-                <h4><?=htmlspecialchars($produit['nom'])?> </h4>
-                <p>prix: <strong><?=htmlspecialchars($produit['prix'])?>$</strong></p>
-                <p><?=htmlspecialchars($produit['description'])?> </p>
-                <button class="Ajouter-au-panier" onclick="Ajouter au panier('<?=htmlspecialchars($produit['nom'])?>',<?=htmlspecialchars($produit['prix'])?>)">Ajouter au panier</button> 
-                
-            </div>
-        <?php endforeach;?>
-    </section>
-    <script>
-    var estconnecte= <?php echo isset($_SESSION['client_id'])? 'true':'false'; ?>;
-    </script>
-    <script src="panier.js"></script>
     <main>
-        <section class="catalogue"> 
-            <h2>Vêtements disponibles</h2>
-            <br>
-        <!--<?php  foreach($produits as $produit): ?>
-            <div class="produit">
-            <img src="images/<?=$produit->image?>"alt="<?=$produit->nom?>">
-            <h3><?=$produit->nom?></h3>
-            <p>prix:<?=$produit->prix?>$</p>
-            <p><?=$produit->description?></p>
-            <button class="Ajouter-au-panier"data-id="<?=$produit->id?>">Ajouter au panier</button>
+        <section id="shop" class="products">
+            <?php foreach($produits as $produit): ?>
+            <div class="product-card">
+                <?php if (!empty($produit['image'])): ?>
+                    <img src="uploads/<?= htmlspecialchars($produit['image']) ?>" alt="<?= htmlspecialchars($produit['nom']) ?>">
+                <?php endif; ?>
+                <h4><?= htmlspecialchars($produit['nom']) ?></h4>
+                <p>prix: <strong><?= htmlspecialchars($produit['prix']) ?>$</strong></p>
+                <p><?= htmlspecialchars($produit['description']) ?></p>
+                <button class="Ajouter-au-panier" onclick="ajouterAuPanier(<?= json_encode($produit['nom']) ?>, <?= json_encode($produit['prix']) ?>)">Ajouter au panier</button>
             </div>
-
-       <?php endforeach; ?>-->
-
-            
-        
-        
-        
+        <?php endforeach; ?>
+        </section>
     </main>
     <footer>
-        <p>&copy;2025 RDC Fashion. </p>
+        <p>&copy;2025 RDC Fashion.</p>
     </footer>
-
-    <script src="scipt.js"></script>
+    <script>
+        // variable js pour savoir si l'utilisateur est connecté
+        var estconnecte = <?php echo isset($_SESSION['client_id']) ? 'true' : 'false'; ?>;
+        //fonction pour ajouter un produit au panier(je doit ccompleté.....)
+        function ajouterAuPanier(nom, prix) {
+            // Ajoute ici le code pour ajouter au panier
+        
+    // Récupère le panier actuel ou crée un nouveau tableau
+    let panier = JSON.parse(localStorage.getItem('panier')) || [];
+    // Ajoute le produit
+    panier.push({ nom: nom, prix: prix });
+    // Sauvegarde le panier
+    localStorage.setItem('panier', JSON.stringify(panier));
+            alert(nom + " ajouté au panier !");
+        }
+    </script>
+    <script src="panier.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+
