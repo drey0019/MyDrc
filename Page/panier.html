@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>panier</title>
+    <link rel="stylesheet" href="panier.css">
+</head>
+<body>
+    <div class="panier">
+        <h1>panier</h1>
+        <div class="produits">
+            <div class="produit">
+                <span class="titre">"</span>
+            </div>
+        </div>
+        <ol id="liste-panier"></ol>
+        <p>Total: <span id="total">0</span>$</p>
+        <button id="vider-panier">Vider le panier</button>
+    </div>
+    <a href="catalogue.php">Retour vers le catalogue</a>
+----<a href="valider-la-commande.php"> <button id="payer-bnt">valider la commande</button></a>
+
+     <script src="panier.js"></script>
+     <script>
+        document.getElementById('payer-bnt').addEventListener('click',function(){
+            document.getElementById('paiement-modal').style.display = 'flex';
+        });
+     </script>
+    
+</body>
+</html>
