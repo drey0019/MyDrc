@@ -6,21 +6,20 @@ body{
     color: #333; 
     
 }
-
 .Page-accueil{
-    background-image: url('Fond7.JPG');
+    background-image: url('image/Fond7.JPG');
     background-size: contain;
     background-position: center;
     text-align: center;
     font-size: 18px;
 }
 header{
-    background-color: #f7d1eb;
+    
     color: white;
     padding: 15px;
     text-align: center;
     
-    background-image:url('Fond5.JPG');
+    background-image:url('images/Fond5.JPG');
     padding-top: 5px;
     background-size:1400px;
     background-position: center;
@@ -28,15 +27,16 @@ header{
     
 }
 .fond-du-header{
-    background-image:url('Fond5.JPG');
-    padding-top: 5px;
+    display: flex;
+    align-items: center;
+    background-image:url('images/Fond5.JPG');
     background-size:1400px;
-    background-position: center;
     background-repeat: no-repeat;
+ 
 }
 
 header nav{
-    margin-top: 30px;
+    display: flex;
 }
 /*la barre de navigation */
 header nav a {
@@ -44,6 +44,7 @@ header nav a {
     text-decoration: none;
     margin: 0 15px;
     font-weight: bold;
+
 
 }
 header nav a:hover{
@@ -58,18 +59,18 @@ header nav a:hover{
 
 /*conteneur pour le logo en haut à gauche*/ 
 .logo-contener{
-    position: fixed;
+    position: static;
     top: 0;
     left: 0;
     padding: 10px;
     z-index: 1000;
-
 }
+
 .logo-video{
     width: 150px;
     height: auto;
-
 }
+
 main{
     padding: 20px;
     max-width: 1000px;
@@ -134,7 +135,7 @@ form{
 
     max-width: 400px;
     margin: 20px auto;
-    background-image: url("Fond7.JPG");
+    background-image: url("images/Fond7.JPG");
     background-position: center;
     
 }
@@ -196,7 +197,25 @@ footer{
         .logo-video{
             width: 70px;
         }
+    
     }
+    .fond-du-header{
+        display:flex ;
+        height: 180px;
+
+    }
+    .header{
+
+        padding: 15px;
+        text-align: center;
+        padding-top: 5px;
+        background-size:1400px;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100px;
+}
+        
+    
 }
 a:hover{
     color: rgb(248, 158, 203);
@@ -205,4 +224,7 @@ a:hover{
     border-radius: 20px;
     border-top: 200px;
     
+}
+.panier{
+    display: flex;
 }

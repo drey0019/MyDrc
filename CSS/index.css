@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.banner {
+    width: 100%;
+    height: 100vh;
+    background:url('../images/Fond7.JPG') no-repeat center center/cover;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}
+
+/* .banner::before { */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(226, 58, 7, 0.1), rgba(0, 0, 0, 0.8));
+    z-index: 1;
+/* } */
+
+.navbar {
+   
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 20px var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.navbar .logo {
+    font-size: 28px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    
+}
+
+.navbar .logo:hover {
+    transform: scale(1.05);
+}
+
+.navbar .menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.navbar .menu li {
+    display: inline;
+}
+
+.navbar .menu a {
+    text-decoration: none;
+    color:rgb(0, 0, 0);
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar .menu a:hover {
+    color: var(--white);
+    border-color: var(--gold);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgb(0, 0, 0)
+}
+
+.content {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: var(--white);
+    z-index: 10;
+    padding: 0 20px;
+}
+
+.content h2 {
+    font-size: 4rem;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+    animation: fadeInUp 1s ease-out;
+    color: var(--white);
+}
+
+.content p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1s ease-out 0.3s both;
+    color: var(--white);
+}
+
+.content .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+button {
+    width: 250px;
+    padding: 18px 0;
+    text-align: center;
+    border-radius: 50px;
+    font-weight: 600;
+    border: 3px ;
+    background: transparent;
+    color: var(--white);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    font-size: 16px;
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 10px;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+button span {
+    height: 100%;
+    width: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: width 0.4s ease;
+    z-index: -1;
+}
+
+button:hover span {
+    width: 100%;
+}
+
+button:hover {
+    color: var(--white);
+    border-color: var(--gold);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgb(0, 0, 0);
+}
+
+
+ /*pour modifier l'affichage (pour le cataogue) sur le téléphone ou sur un autre appareil : */
+@media(max-width:768px){
+    .catalogue{
+        flex-direction: column;
+        align-items: center;
+            .logo-video{
+            width: 70px;
+        }
+    
+    }
+}
+

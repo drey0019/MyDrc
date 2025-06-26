@@ -1,3 +1,10 @@
+<!--<?php
+require_once('../config/connexion.php');
+// Récupérer tous les produits de la base de données
+$bd = loginDatabase();
+$produits = $bd->query("SELECT * FROM produits");
+?>-->
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +21,7 @@
         <nav class="lien"> 
             <a href="index1.html">Accueil</a>
             <a href="Apropos.html"> A propos</a>
-            <a href="catalogue2.html">Catalogue</a>
+            <a href="utilisateur/catalogue.php">Catalogue</a>
             <a href="connexion3.html">Connexion</a>
             <a href="inscription4.html">Inscription</a>
         </nav>
@@ -31,7 +38,7 @@
 
         <section class="presentation"><p>Découvrez les meilleurs vêtements en ligne depuis Kinshasa!</p>
             <!--<p>Livraison partout dans la ville de Kinshasa</p>-->
-            <a href="catalogue2.html" class="bnt">Voir le catalogue</a>
+            <a href="catalogue.php" class="bnt">Voir le catalogue</a>
         </section>
     </main>
     
