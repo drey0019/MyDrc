@@ -14,16 +14,16 @@
     overflow: hidden;
 }
 
-.banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, rgba(226, 58, 7, 0.1), rgba(0, 0, 0, 0.8));
-    z-index: 1;
-}
+/* .banner::before { */
+    /* content: ''; */
+    /* position: absolute; */
+    /* top: 0; */
+    /* left: 0; */
+    /* right: 0; */
+    /* bottom: 0; */
+    /* background: linear-gradient(45deg, rgba(226, 58, 7, 0.1), rgba(0, 0, 0, 0.8)); */
+    /* z-index: 1; */
+/* } */
 
 .navbar {
     background: linear-gradient(135deg, var(--white) 0%, var(--background) 100%);
@@ -87,6 +87,10 @@
     color: var(--white);
     z-index: 10;
     padding: 0 20px;
+    /* pour que les textes de ma page Apropos scrollent */
+    max-height: 520px;
+    overflow:auto ;
+    padding: 10px;
 }
 
 .content h2 {
@@ -145,21 +149,6 @@ button {
     margin: 0 10px;
 }
 
-/* button::before { */
-    /* content: ''; */
-    /* position: absolute; */
-    /* top: 0; */
-    /* left: -100%; */
-    /* width: 100%; */
-    /* height: 100%; */
-    /* background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent); */
-    /* transition: left 0.5s; */
-/* } */
-
-button:hover::before {
-    left: 100%;
-}
-
 button span {
     height: 100%;
     width: 0;
@@ -188,18 +177,78 @@ footer{
     padding: 5px;
     /* margin-top: 20px; */
 }
+/* Affiche le menu burger sur téléphone */
+.affiche {
+    display: none;  /* Par défaut, le menu burger est caché */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2000;
+    cursor: pointer;
+}
 
- /*pour modifier l'affichage (pour le cataogue) sur le téléphone ou sur un autre appareil : */
-@media(max-width:768px){
-    .catalogue{
+/* Responsive pour Apropos */
+/* Pour les écrans de 900px de large ou moins (tablettes et mobiles) */
+@media (max-width: 900px) {
+    .affiche{
+        display: block;  /* Affiche le menu burger */
+    }
+    /* La navbar passe en colonne et le padding est réduit */
+    .navbar {
         flex-direction: column;
-        align-items: center;
-            .logo-video{
-            width: 70px;
-        }
+        align-items: flex-start;
+        padding: 10px 10px;
+    }
+    .navbar .menu{
+        display: none;  /*cache le menu horizontal */
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        flex-direction: column;
+        width: 220px;
+        height: 100vh;
+        padding-top:60px;
+        z-index: 2000;
+        overflow-y: auto;  /* pour scroler le menu burger s'il est trop long */
 
     }
-}
+    .navbar .menu.open{
+        display: flex !important;  /* Affiche le menu vertical quand il est ouvert */
+    }
+    /* Le logo devient plus petit pour s'adapter à l'écran */
+    .navbar .logo {
+        font-size: 22px;
+    }
+    /* Les titres principaux sont réduits pour ne pas déborder */
+    .content h2 {
+        font-size: 2.2rem;
+    }
+    /* Les paragraphes sont plus petits et ont moins de padding */
+    .content p {
+        font-size: 1rem;
+        padding: 0 5px;
+    }
+    .banner{
+        height: auto;  /*  la bannière s'adapte au contenu */
+        /* min-height: 100vh; garde une hauteur minimale */
+    }
+    /* Le bloc de contenu perd sa position absolue et son effet de translation */
+    .content {
+        position: static;
+        transform: none;
+        max-height: none;
+        padding: 10px 0;
+         overflow: auto;/* pour scroler les texts de ma page */
+    }
+
+    /* Le footer est plus compact sur mobile */
+    footer {
+        font-size: 0.9rem;
+        padding: 10px;
+        }
+}    
 
 
 

@@ -6,39 +6,76 @@
     <link rel="stylesheet" href="../CSS/Apropos.css">
 </head>
 <body>
-    
+    <main>
     <div class="banner">
-        <nav class="navbar">
-            <a href="index.html" class="logo">My DRC Shop</a>
-            <ul class="menu">
-              <li><a href="index.html">Accueil</a></li>
-              <li><a href="Apropos.html" class="active">A propos</a></li>
-              <li><a href="utilisateur/catalogue.php">Catalogue</a></li>
-              <li><a href="connexion.html">Connexion</a></li>
-              <li><a href="inscription.html">Inscription</a></li>
-              </li>
-            </ul>
-          </nav>
+<nav class="navbar">
+    <a href="index.html" class="logo">My DRC Shop</a>
+    <a href="#" class="affiche" onclick="ouvrir()">
+        <!-- Icône burger SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+        </svg>
+    </a>
+    <ul class="menu" id="menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="Apropos.html" class="active">A propos</a></li>
+        <li><a href="catalogue.html">Catalogue</a></li>
+        <li><a href="connexion.html">Connexion</a></li>
+        <li><a href="inscription.html">Inscription</a></li>
+        <li><a href="panier.html">panier</a></li>
+        <li>
+            <a href="#" onclick="fermeture()">
+                <!-- Icône fermer SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+                    <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </a>
+        </li>
+    </ul>
+</nav>
           
           <div class="content">
+            
               <h3>Bievenue à tous sur My DRC Shop</h3><br>
-              <p>L'objectif de ce site est de proposer une plateforme simple,accessible ,pratique et agréable ,où chacun peut trouver des vêtements à son goût tout en  rendant vos achats plus simples , plus rapides  et efficaces .
-                S'habiller est une façon de dire qui vous êtes sans parler, Notre site vous offre des vêtements qui répondent à vos envies, sans parler du style l'élégance est un choix !  
-                Merci pour votre confiance et pour votre visite. 
-                N'hésitez pas à vous inscrire sur  notre site pour découvrir les nouveautés et suivre l'évolution de notre boutique . </p>
-             
+              <p>My DRC Shop est une boutique née d'une passion pour la mode et l'élégance.
+                Implaté dans la ville de kinshasa,My DRC Shop est une boutique qui s'engage à offrir des vêtements tendance,accessibles et pensés pour mettre en valeur chaque silhouette.
+              </p><br>
+              
+              <h3>Notre mission</h3>
+              <p>Notre mission est simple : permettre à chacun(e) de se sentir bien dans ce qu'il/elle porte,en alliant confort,styleet qualité <br>
+                Que vous cherchiez une tenue décontractée ou une pièce plus habilléé,vous trouverez chez nous ce qu'il vous faut.
+               </p>
+              <h3>Nos valeurs</h3>
+              <p>Authenticité,confiance,accessibilité et style. 
+                S'habiller est une façon de dire qui nous sommes sans parler! </p>
+              <h3>Notre boutique s'adresse</h3>
+              <p>Notre boutique s'addresse principalement aux jeunes hommes et femmes modernes,dynamiques qui aiment exprimer leurs personnalité à travers leurs tenues.</p></p>
+              <h3>Guide d'achat</h3>
+              <p>Pour commender c'est simple :</p>
+              <p>1. Sélectionnez un produit <br>
+                 2.  Ajoutez-le au panier <br>
+                 3. Validez votre commande</p>
+              <h3>Information de livraison</h3>
+              <p>Notre boutique offre <strong>une livraison à domicile</strong>  et express. <br>
+              Les frais de <strong>livraison</strong> varient en fonction de votre localisation. <br>
+             NB: Nos produits sont disponibles pour toutes leq tailles càd: XXXL,XXL,XL,L,M,S.</p>
+              
+              <strong><h3>Contactez-nous</h3></strong>
+              <p>Pour plus de précisions,Contactez-nous au 
+              <a href="https://wa.me/243821315889" target="_blank">+243821315889</a></p> 
+              <p>Merci pour votre confiance et pour votre visite. <br> N'hésitez pas à vous inscrire sur notre site pour découvrir les nouveautés et faire partir de l'aventure.</p> 
+              
+
+            
           </div>
   </div>
-   
-
-   
-       
-   
+  </main>
     <footer>
     <p>&copy;2025 RDC Fashion.</p>
     </footer>
-    <script src="script.js"></script>
+    <script src="../js/script.js"></script>
  
 </body>
 
 </html>
+

@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    /* box-sizing: border-box; */
+}
+h2{
+    text-align: center;
+}
+
+
+.catalogue {
+    text-align: center;
+    border: 0px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    width: 247px;
+    margin: 20px;
+    background: rgb(192, 190, 190);
+    
+}
+.catalogue img{
+    width: 100%;
+    height: 90%;
+
+}
+.catalogue img:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+
+}
+.tout{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+main h2{
+    margin: 50px ;
+    text-align: center;
+}
+.banner {
+    width: 100%;
+    height: 60%;
+    background:url('../images/Fond7.JPG') no-repeat center center/cover;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}
+.banner h1{
+    text-align: center;
+    margin-top: 40px;
+}
+.navbar {
+    background: linear-gradient(135deg, var(--white) 0%, var(--background) 100%);
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 20px var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+.navbar .logo {
+    font-size: 28px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    
+}
+.navbar .logo:hover {
+    transform: scale(1.05);
+}
+.navbar .menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+.navbar .menu li {
+    display: inline;
+}
+.navbar .menu a {
+    text-decoration: none;
+    color:rgb(0, 0, 0);
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar .menu a:hover {
+    color: var(--white);
+    border-color: var(--gold);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgb(0, 0, 0)
+}
+footer{
+    background-color: #25242467;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    
+}
+/* cacher le menu burger sur grand écrans */
+.affiche{
+    display: none;
+    cursor: pointer;
+    margin-left: 20px;
+}
+@media(max-width:900px) {
+
+    .navbar .menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        width: 220px;
+        height: 100vh;
+        padding-top: 60px;
+        z-index: 2000;
+        overflow-y: auto;
+        gap: 0;
+    }
+    .navbar .menu.open {
+        display: flex !important;
+    }
+    .affiche {
+        display: block;
+    }
+
+    
+    .navbar .menu li {
+        display: block;
+        margin-bottom: 18px;
+    }
+    .navbar .menu a {
+        display: block;
+        padding: 12px 0;
+        text-align: center;
+    }
+    /* .catalogue{ */
+        /* display: flex; */
+        /* flex-direction: column; */
+    /* } */
+    .tout{
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        max-height: 70vh;      /* Hauteur maximale visible */
+        overflow-y: auto;      /* Active le scroll vertical  */
+    }
+    
+}

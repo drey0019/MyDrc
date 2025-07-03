@@ -17,7 +17,7 @@ if (isset($_POST['ajouter'])) {
     $description = htmlspecialchars($_POST['description']);
     // $image = htmlspecialchars($_POST['image']);
     // Gestion de l'upload d'image (optionnel, à adapter selon votre logique)
-    $uploadDir ='../image/'.'/'; // Répertoire de destination des images
+    $uploadDir ='../images/'.'/'; // Répertoire de destination des images
     if (!is_dir($uploadDir)){
         mkdir($uploadDir, permissions: true);
     }

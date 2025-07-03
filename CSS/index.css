@@ -14,17 +14,6 @@
     overflow: hidden;
 }
 
-/* .banner::before { */
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, rgba(226, 58, 7, 0.1), rgba(0, 0, 0, 0.8));
-    z-index: 1;
-/* } */
-
 .navbar {
    
     padding: 20px 30px;
@@ -83,10 +72,13 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    text-align: center;
-    color: var(--white);
-    z-index: 10;
-    padding: 0 20px;
+    /* text-align: center; */
+     z-index: 10;
+    /* pour que les textes de ma page Apropos scrollent */
+    /* max-height: 520px; */
+    overflow:auto ;
+    padding: 10px;
+    
 }
 
 .content h2 {
@@ -95,17 +87,18 @@
     font-weight: 700;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
     animation: fadeInUp 1s ease-out;
-    color: var(--white);
-}
-
+    text-align: center;
+    
+}     
 .content p {
-    font-size: 1.3rem;
     max-width: 700px;
     margin: 0 auto 40px;
     line-height: 1.8;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     animation: fadeInUp 1s ease-out 0.3s both;
-    color: var(--white);
+    font-size: 1.5rem;
+
+    
 }
 
 .content .buttons {
@@ -162,25 +155,95 @@ button span {
 
 button:hover span {
     width: 100%;
-}
-
+} 
 button:hover {
     color: var(--white);
     border-color: var(--gold);
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgb(0, 0, 0);
 }
-
-
- /*pour modifier l'affichage (pour le cataogue) sur le téléphone ou sur un autre appareil : */
-@media(max-width:768px){
-    .catalogue{
-        flex-direction: column;
-        align-items: center;
-            .logo-video{
-            width: 70px;
-        }
-    
-    }
+/* Affiche le menu burge sur téléphone */
+.affiche {
+    display: none;  /* Par défaut, le menu burger est caché */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2000;
+    cursor: pointer;
 }
+ 
+@media(max-width:900px){
+    .affiche{
+        display: block;  /* Affiche le menu burger */
+    } 
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 10px;
+    }
+
+ /* .navbar {  */
+     /* flex-direction: column; pour empiler les éléments verticalement */
+     /* justify-content: flex-start; aligne les éléments au début */
+     /* align-items: flex-start;  */
+     /* padding: 10px 10px;  */
+ /* }  */
+    .navbar .menu{
+        display: none;  /*cache le menu horizontal */
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        flex-direction: column;
+        width: 220px;
+        height: 100vh;
+        padding-top:60px;
+        z-index: 2000;
+        overflow-y: auto;  /* pour scroler le menu burger s'il est trop long */
+
+}
+    .navbar .menu.open{
+        display: flex !important;  /* Affiche le menu vertical quand il est ouvert */
+}
+    /* Le logo devient plus petit pour s'adapter à l'écran */
+    .navbar .logo {
+        font-size: 22px;
+}
+/* Les titres principaux sont réduits pour ne pas déborder */
+    .content h2 {
+        font-size: 2.8rem;
+}
+/* Les paragraphes sont plus petits et ont moins de padding */
+    .content p {
+        font-size: 1.4rem;
+        padding: 0 5px;
+}
+    .banner{ 
+        /* display: flex; */
+        /* flex-direction: column; */
+        /* justify-content: center; Centre le contenu verticalement */
+        /* align-items: center; Centre le contenu horizontalement */
+        /* height: auto;   la bannière s'adapte au contenu */
+        /* min-height: 100vh;  la banniere prend au moins toute la hauteur de l'écran */
+        background-attachment:scroll; /* Désactive le fixed sur mobile */
+        /* background-position: center center; */
+        /* background-size: cover; */
+    
+}
+/* Le bloc de contenu perd sa position absolue et son effet de translation */
+    .content {
+        position:static;
+        top: auto; 
+        transform: none;
+        max-height: none;
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+}
+        
+}
+   
+
+
 

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>catalogue homme</title>
+    <link rel="stylesheet" href="../CSS/catalogue.css">
+    
+</head>
+<body>
+    <div class="banner">
+
+<nav class="navbar">
+    <a href="index.html" class="logo">My DRC Shop</a>
+    <a href="#" class="affiche" onclick="ouvrir()">
+        <!-- Icône burger SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+        </svg>
+    </a>
+    <ul class="menu" id="menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="Apropos.html" class="active">A propos</a></li>
+        <li><a href="catalogue.html">Catalogue</a></li>
+        <li><a href="connexion.html">Connexion</a></li>
+        <li><a href="inscription.html">Inscription</a></li>
+        <li><a href="panier.html">panier</a></li>
+        <li>
+            <a href="#" onclick="fermeture()">
+                <!-- Icône fermer SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+                    <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </a>
+        </li>
+    </ul>
+</nav>
+          
+<div class="content">
+
+       
+    <h1>Catalogue homme</h1>      
+  </div>
+    <main>
+        <h2>vêtements disponibles</h2>
+        <section class="catalogue" height="300px" width="50px">  
+            <div class="produit">
+            <img src="../images/photo2 du catalogue.jpg" alt="Haut maron" >
+            <h3>Haut maron</h3>
+            <p>Prix: 15$</p> 
+            <button class="Ajouter-au-panier" data-id="1">Ajouter au panier</button>
+            </div>
+        
+
+            <div class="produit">
+                <img src="../images/ph10.JPG" alt="Ensemble Homme">
+                <h3>Ensemble Homme</h3>
+                <p>prix:30$</p>
+                <button class="Ajouter-au-panier" data-id="2">Ajouter au panier</button>
+            </div>
+
+            <div class="produit">
+                <img src="../images/PantalonTissusHomme.JPG" alt="Pantalon Tissus Homme">
+                <h3>Pantalon tissu  </h3>
+                <p>Prix:15$</p>
+                <button class="Ajouter-au-panier" data-id="3">Ajouter au panier</button>
+            </div>
+        
+        
+            <div class="produit">
+                <img src="../images/EnsembleBazin.JPG" alt="Ensemble Bazin">
+                <h3>Ensemble Bazin</h3>
+                <p> prix:25$</p>
+                <button class="Ajouter-au-panier" data-id="4" > Ajouter au panier</button>
+            </div>
+
+            <div class="produit">
+                <img src="../images/VesteHomme.JPG" alt="Veste homme">
+                <h3>Veste homme</h3>
+                <p>prix:65$</p>
+                <button class="Ajouter-au-panier" data-id="5"> Ajouter au panier</button>
+            </div>   
+
+            <div class="produit">
+                <img src="../images/PantalonHomme.JPG" alt="Pantalon homme">
+                <h3>Pantalon homme</h3>
+                <p>prix:15$</p>
+                <button class="Ajouter-au-panier" data-id="6"> Ajouter au panier</button>
+            </div>
+
+            <div class="produit">
+                <img src="../images/PullHomme.JPG" alt="Pull homme">
+                <h3>Pull chocolat </h3>
+                <p>prix:10$</p>
+                <button class="Ajouter-au-panier" data-id="7"> Ajouter au panier</button>
+            </div>
+
+            <div class="produit"> 
+                <img src="../images/PullSansManche.JPG" alt="Pull sans manches">
+                <h3>Pull sans manches</h3>
+                <p>prix:28$</p>
+                <button class="Ajouter-au-panier" data-id="8">Ajouter au panier</button>
+            </div>
+
+            <div class="produit">
+                <img src="../images/LacosteVerte.JPG" alt="Lacoste vert">
+                <h3>Lacoste vert</h3>
+                <p>prix:17$</p>
+                <button class="Ajouter-au-panier" data-id="9">Ajouter au panier</button>
+            </div>
+
+            <div class="produit">
+                <img src="../images/ph7 du catalogue.PNG" alt="Veste Homme">
+                <h3>Veste homme</h3>
+                <p>prix:15$</p>
+                <button class="Ajouter-au-panier" data-id="10">Ajouter au panier</button>
+            </div>
+
+            <div class="produit">
+                <img src="../images/VestePagne.JPG" alt="Veste Pagne">
+                <h3>Veste Pagne</h3>
+                <p>prix:10$</p>
+                <button class="Ajouter-au-panier" data-id="10">Ajouter au panier</button>
+            </div>
+                
+            <div class="produit">
+                <img src="../images/ChemiseManchescourtes.JPG" alt="Chemise Manches Courtes">
+                <h3>Chemise Manches Courtes</h3>
+                <p>prix:15$</p>
+                <button class="Ajouter-au-panier" data-id="10">Ajouter au panier</button>
+            </div>
+               
+        </section>
+    </main>
+    <footer>
+        <p>&copy;2025 RDC Fashion. </p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

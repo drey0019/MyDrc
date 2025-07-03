@@ -1,65 +1,35 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* box-sizing: border-box; */
 }
-
-.banner {
-    width: 100%;
-    height: 100vh;
-    background:url('../images/Fond7.JPG') no-repeat center center/cover;
-    background-attachment: fixed;
-    position: relative;
-    overflow: hidden;
-}
-
-.banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, rgba(226, 58, 7, 0.1), rgba(0, 0, 0, 0.8));
-    z-index: 1;
-}
-
+/* nav barre */
 .navbar {
-    background: linear-gradient(135deg, var(--white) 0%, var(--background) 100%);
     padding: 20px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 4px 20px var(--shadow);
-    position: sticky;
     top: 0;
     z-index: 1000;
     backdrop-filter: blur(10px);
 }
-
+/* logo nav */
 .navbar .logo {
     font-size: 28px;
     font-weight: 700;
     transition: all 0.3s ease;
-    text-decoration: none;
-    
+    text-decoration: none;  
 }
-
 .navbar .logo:hover {
     transform: scale(1.05);
 }
-
+/* liens nav */
 .navbar .menu {
-    list-style: none;
-    display: flex;
-    gap: 25px;
+    list-style: none; 
+    display:flex;
+    align-items: center;
 }
-
-.navbar .menu li {
-    display: inline;
-}
-
 .navbar .menu a {
     text-decoration: none;
     color:rgb(0, 0, 0);
@@ -70,10 +40,156 @@
     position: relative;
     overflow: hidden;
 }
-
-.navbar .menu a:hover {
+.navbar ul a:hover {
     color: var(--white);
     border-color: var(--gold);
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgb(0, 0, 0)
 }
+/* burger */
+/* autre chose */
+.banner {
+    background:url('../images/Fond7.JPG') no-repeat center center/cover;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner h1{
+    text-align: center;
+    margin-top: 40px;
+}
+img{
+    max-width: 100%;
+    height: 70%;
+
+}
+main h2{
+    margin: 50px 0;
+    text-align: center;
+}
+.catalogue {
+    display: flex;
+    flex-wrap: wrap;        /* Permet le retour à la ligne si trop d'éléments */
+    gap: 20px;               /* Espace entre les produits */
+    justify-content: center; /* Centre les produits horizontalement */
+}
+.catalogue img:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.produit {       
+    max-width:200px; /* Hauteur fixe pour chaque produit */
+    height: auto;            /* Largeur fixe pour chaque produit */
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px #292828;
+    padding: 5px;
+    padding-bottom: 30px;
+    text-align: center;
+    margin: 20px;
+    
+}
+.produit p{
+    margin: 5px;
+}
+/* pour avoir la meme taille partout */
+.produit p, .produit h3, button {
+    font-size: 1rem;
+}
+button{
+    border: none;
+    background-color: #25242467;
+    width: 80%;
+    height: 10%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+button:hover{
+    transform:scale(1.05);
+    transition: transform 0.3s ease;
+}
+.menu.open {
+    display: flex !important;
+}
+
+footer{
+    background-color: #25242467;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    
+}
+/* Affiche le menu burger seulement sur mobile */
+.affiche{
+    display: none;
+    cursor: pointer;
+    margin-left: 20px;
+}
+@media (max-width: 900px){
+    .affiche {
+        display: block; /* Affiche le menu burger */
+    }
+    .navbar .menu{
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        width: 220px;
+        height: 100vh;
+        padding-top: 60px;
+        z-index: 2000;
+        overflow-y: auto;   
+    }
+    .navbar .menu li {
+        margin-bottom: 18px; /* Espace vertical entre chaque lien */
+    }
+    .navbar .menu li:last-child {
+        margin-bottom: 0; /* Pas d'espace après le dernier lien */
+    }
+    .navbar .menu a {
+        padding: 10px 0;   /* Espace autour du texte du lien */
+        display: block;    /* Prend toute la largeur pour cliquer facilement */
+    }
+    
+    .navbar .menu.open {
+        display: flex !important; /* Affiche le menu burger */
+    }
+
+    /* bannière responsive */
+    .banner{
+        height: auto;
+        min-height: 90vh;
+        background-attachment:scroll;
+        background-position: center center;
+        background-size: cover; 
+    }
+
+    .catalogue {
+        flex-direction: column; /* Colonne pour les produits */
+        align-items: center; /* Centre les produits  */
+        gap: 10px; /* Espace entre les produits */
+    }
+    .produit{
+        /* max-width: 30vw; */
+        margin: 10px 0;
+    }
+    img{
+        height: auto;
+        /* max-width: 100%; */
+    }
+    main h2, .banner h1 {
+        font-size: 1.5rem;
+        margin: 20px 0;
+    }
+    footer{
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+    
+
+} 
+
