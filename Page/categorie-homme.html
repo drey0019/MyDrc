@@ -48,22 +48,22 @@
             <img src="../images/photo2 du catalogue.jpg" alt="Haut maron" >
             <h3>Haut maron</h3>
             <p>Prix: 15$</p> 
-            <button class="Ajouter-au-panier" data-id="1">Ajouter au panier</button>
+            <button class="Ajouter-au-panier" data-id="1" data-nom="Haut maron" data-prix="15$">Ajouter au panier</button>
             </div>
         
 
             <div class="produit">
                 <img src="../images/ph10.JPG" alt="Ensemble Homme">
-                <h3>Ensemble Homme</h3>
+                <h3>Ensemble homme</h3>
                 <p>prix:30$</p>
-                <button class="Ajouter-au-panier" data-id="2">Ajouter au panier</button>
+                <button class="Ajouter-au-panier" data-id="2" data-nom="Ensemble homme " data-prix="30$">Ajouter au panier</button>
             </div>
 
             <div class="produit">
                 <img src="../images/PantalonTissusHomme.JPG" alt="Pantalon Tissus Homme">
                 <h3>Pantalon tissu  </h3>
                 <p>Prix:15$</p>
-                <button class="Ajouter-au-panier" data-id="3">Ajouter au panier</button>
+                <button class="Ajouter-au-panier" data-id="3" data-nom="Pantalon tissu homme" data-prix="15$">Ajouter au panier</button>
             </div>
         
         
@@ -71,63 +71,63 @@
                 <img src="../images/EnsembleBazin.JPG" alt="Ensemble Bazin">
                 <h3>Ensemble Bazin</h3>
                 <p> prix:25$</p>
-                <button class="Ajouter-au-panier" data-id="4" > Ajouter au panier</button>
+                <button class="Ajouter-au-panier" data-id="4" data-nom="Ensemble Bazin" data-prix="25$"> Ajouter au panier</button>
             </div>
 
             <div class="produit">
                 <img src="../images/VesteHomme.JPG" alt="Veste homme">
                 <h3>Veste homme</h3>
                 <p>prix:65$</p>
-                <button class="Ajouter-au-panier" data-id="5"> Ajouter au panier</button>
+                <button class="Ajouter-au-panier" data-id="5" data-nom="Veste homme" data-prix="65$" a> Ajouter au panier</button>
             </div>   
 
             <div class="produit">
                 <img src="../images/PantalonHomme.JPG" alt="Pantalon homme">
                 <h3>Pantalon homme</h3>
                 <p>prix:15$</p>
-                <button class="Ajouter-au-panier" data-id="6"> Ajouter au panier</button>
+                <button class="Ajouter-au-panier" data-id="6" data-nom="Pantalon homme" data-prix="15$"> Ajouter au panier</button>
             </div>
 
             <div class="produit">
                 <img src="../images/PullHomme.JPG" alt="Pull homme">
                 <h3>Pull chocolat </h3>
                 <p>prix:10$</p>
-                <button class="Ajouter-au-panier" data-id="7"> Ajouter au panier</button>
+                <button class="Ajouter-au-panier" data-id="7" data-nom="Pull chocolat" data-prix="10$"> Ajouter au panier</button>
             </div>
 
             <div class="produit"> 
                 <img src="../images/PullSansManche.JPG" alt="Pull sans manches">
                 <h3>Pull sans manches</h3>
                 <p>prix:28$</p>
-                <button class="Ajouter-au-panier" data-id="8">Ajouter au panier</button>
+                <button class="Ajouter-au-panier" data-id="8" data-nom="Pull sans manches" data-prix="28$">Ajouter au panier</button>
             </div>
 
             <div class="produit">
                 <img src="../images/LacosteVerte.JPG" alt="Lacoste vert">
                 <h3>Lacoste vert</h3>
                 <p>prix:17$</p>
-                <button class="Ajouter-au-panier" data-id="9">Ajouter au panier</button>
+                <button class="Ajouter-au-panier" data-id="9" data-nom="Lacoste vert" data-prix="17$">Ajouter au panier</button>
             </div>
 
             <div class="produit">
                 <img src="../images/ph7 du catalogue.PNG" alt="Veste Homme">
                 <h3>Veste homme</h3>
                 <p>prix:15$</p>
-                <button class="Ajouter-au-panier" data-id="10">Ajouter au panier</button>
+                <button class="Ajouter-au-panier" data-id="10" data-nom="Veste homme" data-prix="15$">Ajouter au panier</button>
             </div>
 
             <div class="produit">
                 <img src="../images/VestePagne.JPG" alt="Veste Pagne">
                 <h3>Veste Pagne</h3>
                 <p>prix:10$</p>
-                <button class="Ajouter-au-panier" data-id="10">Ajouter au panier</button>
+                <button class="Ajouter-au-panier" data-id="11" data-nom="Veste pagne" data-prix="15$">Ajouter au panier</button>
             </div>
                 
             <div class="produit">
                 <img src="../images/ChemiseManchescourtes.JPG" alt="Chemise Manches Courtes">
                 <h3>Chemise Manches Courtes</h3>
                 <p>prix:15$</p>
-                <button class="Ajouter-au-panier" data-id="10">Ajouter au panier</button>
+                <button class="Ajouter-au-panier" data-id="12" data-nom="Chemise manches courtes" data-prix="15$">Ajouter au panier</button>
             </div>
                
         </section>
@@ -137,5 +137,28 @@
     </footer>
 
     <script src="../js/script.js"></script>
+
+    <script>
+    // Script pour ajouter au panier avec prompt de quantité
+    document.addEventListener('DOMContentLoaded', function() {
+        var boutons = document.querySelectorAll('.Ajouter-au-panier');
+        boutons.forEach(function(bouton) {
+            bouton.addEventListener('click', function() {
+                var id = bouton.getAttribute('data-id');
+                var nom = bouton.getAttribute('data-nom');
+                var prix = bouton.getAttribute('data-prix');
+                var quantite = prompt('Veuillez préciser la quantité à commander pour ' + nom + ':', '1');
+                if (quantite !== null && !isNaN(quantite) && Number(quantite) > 0) {
+                    var panier = JSON.parse(localStorage.getItem('panier')) || [];
+                    panier.push({ id: id, nom: nom, prix: prix, quantite: Number(quantite) });
+                    localStorage.setItem('panier', JSON.stringify(panier));
+                    alert(quantite + ' x ' + nom + ' ajouté(s) au panier !');
+                } else if (quantite !== null) {
+                    alert('Veuillez entrer une quantité valide.');
+                }
+            });
+        });
+    });
+    </script>
 </body>
 </html>
