@@ -1,9 +1,84 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f7f7f7;
-  padding: 20px;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 }
 
+.banner {
+    width: 100%;
+    height: 100vh;
+    background:url('../images/Fond7.JPG') no-repeat center center/cover;
+    background-attachment: fixed;
+    position: relative;
+    
+}
+.navbar {
+   
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* box-shadow: 0 4px 20px var(--shadow); */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+.navbar .logo {
+    font-size: 28px;
+    font-weight: 700;
+    /* transition: all 0.3s ease; */
+    text-decoration: none;
+    
+}
+/* Pour l'alignement des liens: */
+.navbar .menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+.navbar .menu li {
+    display: inline;
+}
+.navbar .menu a {
+    text-decoration: none;
+    color:rgb(0, 0, 0);
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 25px;
+    /* transition: all 0.3s ease; */
+    position: relative;
+    /* overflow: hidden; */
+}
+.navbar .menu a:hover {
+    /* color: var(--white); */
+    /* border-color: var(--gold); */
+    /* transform: translateY(-3px); */
+    box-shadow: 0 10px 25px rgb(0, 0, 0)
+}
+.content {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    /* transform: translateY(-50%); */
+    /* text-align: center; */
+     z-index: 10;
+    /* pour que les textes de ma page Apropos scrollent */
+    /* max-height: 520px; */
+    /* overflow:auto ; */
+    padding: 10px;
+    
+}
+body {
+  background-color: #f7f7f7;
+
+}
+#panier {
+  padding: 50px;
+  
+  
+}
 .container {
   max-width: 600px;
   margin: auto;
@@ -11,13 +86,11 @@ body {
   padding: 20px;
   border-radius: 8px;
 }
-
 .product {
   margin-bottom: 15px;
   padding: 10px;
   border-bottom: 1px solid #ddd;
 }
-
 button {
   padding: 5px 10px;
   background-color: chocolate;
@@ -25,18 +98,25 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  text-align: center;
+  position: relative;
 }
-
 button:hover {
   background-color: darkorange;
 }
-
-#cart .item {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 0;
+#panier-list > div {
+    margin-bottom: 15px;
+    
 }
-
-.qty {
-  margin: 0 10px;
+#panier h1 {
+    margin-bottom: 25px;
+}
+/* Affiche le menu burge sur téléphone */
+.affiche {
+    display: none;  /* Par défaut, le menu burger est caché */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2000;
+    cursor: pointer;
 }

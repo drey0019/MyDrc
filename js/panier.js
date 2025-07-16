@@ -14,10 +14,11 @@ window.onload = function() {
         panierDiv.innerHTML = panier.map(function(prod, index) {
             // On extrait le prix en nombre (enlève le $ si présent)
             var prixNum = parseFloat(prod.prix.replace('$',''));
-            total += prixNum;
+            var sousTotal = prixNum * (prod.quantite ? Number(prod.quantite) : 1);
+            total += sousTotal;
             return `
                 <div>
-                    <strong>${prod.nom}</strong> - ${prod.prix}
+                    <strong>${prod.nom}</strong> - ${prod.prix} x ${prod.quantite ? prod.quantite : 1} = ${sousTotal}$
                     <button onclick="supprimerProduit(${index})">Supprimer</button>
                 </div>
             `;

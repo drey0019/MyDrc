@@ -27,7 +27,7 @@
         <li>
             <a href="#" onclick="fermeture()">
                 <!-- Icône fermer SVG -->
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="http://www.w3.org/2000/svg" width="24px" fill="#000">
                     <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
                 </svg>
             </a>
@@ -132,7 +132,26 @@
     <script src="../js/script.js"></script>
 
     <script>
-    
+    // Script pour ajouter au panier avec prompt de quantité
+    document.addEventListener('DOMContentLoaded', function() {
+        var boutons = document.querySelectorAll('.Ajouter-au-panier');
+        boutons.forEach(function(bouton) {
+            bouton.addEventListener('click', function() {
+                var id = bouton.getAttribute('data-id');
+                var nom = bouton.getAttribute('data-nom');
+                var prix = bouton.getAttribute('data-prix');
+                var quantite = prompt('Veuillez préciser la quantité à commander pour ' + nom + ':', '1');
+                if (quantite !== null && !isNaN(quantite) && Number(quantite) > 0) {
+                    var panier = JSON.parse(localStorage.getItem('panier')) || [];
+                    panier.push({ id: id, nom: nom, prix: prix, quantite: Number(quantite) });
+                    localStorage.setItem('panier', JSON.stringify(panier));
+                    alert(quantite + ' x ' + nom + ' ajouté(s) au panier !');
+                } else if (quantite !== null) {
+                    alert('Veuillez entrer une quantité valide.');
+                }
+            });
+        });
+    });
     </script>
 </body>
 </html>
