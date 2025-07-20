@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Panier</title>
+  <link rel="stylesheet" href="../CSS/panier.css">
+</head>
+<body>
+    
+    <div class="banner">
+<nav class="navbar">
+    <a href="index.html" class="logo">My DRC Shop</a>
+    <a href="#" class="affiche" onclick="ouvrir()">
+        <!-- Icône burger SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+        </svg>
+    </a>
+    <ul class="menu" id="menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="Apropos.html" class="active">A propos</a></li>
+        <li><a href="catalogue.html">Catalogue</a></li>
+        <li><a href="connexion.html">Connexion</a></li>
+        <li><a href="inscription.html">Inscription</a></li>
+        <li><a href="panier.html">panier</a></li>
+        <li>
+            <a href="#" onclick="fermeture()">
+                <!-- Icône fermer SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+                    <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </a>
+        </li>
+    </ul>
+</nav>
+        <section id="panier">
+            <h1>Mon Panier</h1>
+            <div id="panier-list"></div>
+            <div class="total-panier" id="total-panier"></div>
+            <button id="confirmer-commande" style="margin-top:30px; padding:10px 20px; background:green; color:white; border:none; border-radius:5px; cursor:pointer;">Confirmer la commande</button>
+            <form id="form-livraison" style="display:none; margin-top:20px;">
+                <label for="adresse">Adresse de livraison :</label><br>
+                <input type="text" id="adresse" name="adresse" required style="width:80%; padding:8px; margin-bottom:10px;"><br>
+                <button type="submit" style="background:chocolate; color:white; padding:8px 16px; border:none; border-radius:5px;">Valider la livraison</button>
+            </form>
+        </section>
+    </div>
+<footer>
+    <p>&copy;2025 RDC Fashion.</p>
+</footer>
+    <script src="../js/panier.js"></script>
+    <script>
+// Vérification de la connexion (exemple simple)
+function estConnecte() {
+    return localStorage.getItem('utilisateurConnecte') === 'true';
+}
+
+function aUnCompte() {
+    // Vérifie si le client a un compte (exemple: email enregistré en localStorage)
+    return localStorage.getItem('utilisateurInscrit') === 'true';
+}
+
+document.getElementById('confirmer-commande').onclick = function() {
+    if (!aUnCompte()) {
+        alert('Vous devez créer un compte pour commander.');
+        window.location.href = 'inscription.html';
+        return;
+    } else if (!estConnecte()) {
+        alert('Vous devez vous connecter pour commander.');
+        window.location.href = 'connexion.html';
+        return;
+    }
+    document.getElementById('form-livraison').style.display = 'block';
+};
+
+document.getElementById('form-livraison').onsubmit = function(e) {
+    e.preventDefault();
+    var adresse = document.getElementById('adresse').value;
+    var panier = JSON.parse(localStorage.getItem('panier')) || [];
+    var message = 'Nouvelle commande :\n';
+    panier.forEach(function(prod) {
+        message += prod.nom + ' x ' + prod.quantite + ' = ' + prod.prix + '\n';
+    });
+    message += 'Adresse de livraison : ' + adresse;
+    // Remplace le numéro par ton numéro WhatsApp
+    var whatsappUrl = 'https://wa.me/243821315889?text=' + encodeURIComponent(message);
+    window.open(whatsappUrl, '_blank');
+    alert('Votre commande a été envoyée sur WhatsApp !');
+};
+</script>
+</body>
+</html>

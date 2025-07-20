@@ -17,17 +17,14 @@ h2{
     width: 247px;
     margin: 20px;
     background: rgb(192, 190, 190);
-    
 }
 .catalogue img{
     width: 100%;
     height: 90%;
-
 }
 .catalogue img:hover{
     transform: scale(1.05);
     transition: transform 0.3s ease;
-
 }
 .tout{
     display: flex;
@@ -99,7 +96,7 @@ main h2{
 }
 footer{
     background-color: #25242467;
-    color: white;
+    /* color: white; */
     text-align: center;
     padding: 5px;
     
@@ -142,6 +139,10 @@ footer{
         display: block;
         padding: 12px 0;
         text-align: center;
+    }
+    .catalogue img{
+    width: 100%;
+    height: 90%;
     }
     /* .catalogue{ */
         /* display: flex; */

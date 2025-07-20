@@ -41,12 +41,11 @@
     overflow: hidden;
 }
 .navbar ul a:hover {
-    color: var(--white);
     border-color: var(--gold);
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgb(0, 0, 0)
 }
-/* burger */
+
 /* autre chose */
 .banner {
     background:url('../images/Fond7.JPG') no-repeat center center/cover;
@@ -116,7 +115,6 @@ button:hover{
 
 footer{
     background-color: #25242467;
-    color: white;
     text-align: center;
     padding: 5px;
     

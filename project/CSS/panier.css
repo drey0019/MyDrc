@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -52,27 +53,25 @@
     /* overflow: hidden; */
 }
 .navbar .menu a:hover {
-    /* color: var(--white); */
-    /* border-color: var(--gold); */
-    /* transform: translateY(-3px); */
-    box-shadow: 0 10px 25px rgb(0, 0, 0)
+    box-shadow: 0 10px 25px rgb(0, 0, 0);
 }
 .content {
     width: 100%;
     position: absolute;
     top: 50%;
-    /* transform: translateY(-50%); */
-    /* text-align: center; */
      z-index: 10;
     /* pour que les textes de ma page Apropos scrollent */
-    /* max-height: 520px; */
-    /* overflow:auto ; */
+    overflow:auto ; 
     padding: 10px;
     
 }
 body {
   background-color: #f7f7f7;
+  color: #333;  
+}
 
+p,h1{
+    color: #020c18;
 }
 #panier {
   padding: 50px;
@@ -111,6 +110,13 @@ button:hover {
 #panier h1 {
     margin-bottom: 25px;
 }
+footer{
+  background-color: #25242467;
+  text-align: center;
+  padding: 7px;
+  /* color: #333; */
+  backdrop-filter: blur(7px);
+}
 /* Affiche le menu burge sur téléphone */
 .affiche {
     display: none;  /* Par défaut, le menu burger est caché */
@@ -120,3 +126,38 @@ button:hover {
     z-index: 2000;
     cursor: pointer;
 }
+ /*pour modifier l'affichage (pour le cataogue) sur le téléphone ou sur un autre appareil : */
+@media(max-width:900px){
+    
+    .affiche{
+        display: block;  /* Affiche le menu burger */
+    } 
+    
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 10px;
+    }
+    .navbar .menu{
+        display: none;  /*cache le menu horizontal */
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        flex-direction: column;
+        width: 220px;
+        height: 120vh;
+        padding-top:60px;
+        z-index: 2000;
+        overflow-y: auto;  /* pour scroler le menu burger s'il est trop long */
+    }
+        .navbar .menu.open{
+        display: flex !important;  /* Affiche le menu vertical quand il est ouvert */
+    }
+    /* Le logo devient plus petit pour s'adapter à l'écran */
+    .navbar .logo {
+        font-size: 22px;
+    }
+
+  }

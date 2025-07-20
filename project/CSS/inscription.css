@@ -3,10 +3,8 @@ body{
     margin: 0;/*margin et padding ==0 : enlève mes marges par défaut */
     padding: 0;
    /* background: color #f9f9f9;*/
-    color: #333; 
-    
+    color: #333;   
 }
-
 * {
     margin: 0;
     padding: 0;
@@ -16,15 +14,17 @@ body{
 
 .banner {
     width: 100%;
-    height: 30%;
+    height: 100%;
     background:url('../images/Fond7.JPG') no-repeat center center/cover;
     background-attachment: fixed;
     position: relative;
     overflow: hidden;
+    overflow-y: auto; /* pour sroller dans la page */
 }
 .banner h1{
     text-align: center;
     margin-top: 40px;
+    /* font-size: 32px; */
 }
 
 .navbar {
@@ -63,6 +63,7 @@ body{
 }
 
 .navbar .menu a {
+    font-size: 16px;
     text-decoration: none;
     color:rgb(0, 0, 0);
     font-weight: 600;
@@ -74,7 +75,7 @@ body{
 }
 
 .navbar .menu a:hover {
-    color: var(--white);
+    /* color: var(--white); */
     border-color: var(--gold);
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgb(0, 0, 0)
@@ -103,7 +104,6 @@ form{
     margin: 20px auto;
     background-image: url(../images/Fond7.JPG);
     background-position: center;
-    
 }
 form label{
     display: block;
@@ -138,35 +138,57 @@ footer{
     background-color: #25242467;
     color: white;
     text-align: center;
-    padding: 5px;
-    margin-top: 30px;
+    padding: 7px;
+    margin-top: 315px;
 }
+
+/* Affiche le menu burge sur téléphone */
+.affiche {
+    display: none;  /* Par défaut, le menu burger est caché */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2000;
+    cursor: pointer;
+}
+ 
 
  /*pour modifier l'affichage (pour le cataogue) sur le téléphone ou sur un autre appareil : */
-@media(max-width:768px){
-    .catalogue{
-        flex-direction: column;
-        align-items: center;
-        .logo-video{
-            width: 70px;
-        }
-    }
+@media(max-width:900px){
     
-    .header{
+    .affiche{
+        display: block;  /* Affiche le menu burger */
+    } 
+    
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 10px;
+    }
+    .navbar .menu{
+        display: none;  /*cache le menu horizontal */
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        flex-direction: column;
+        width: 220px;
+        height: 120vh;
+        padding-top:60px;
+        z-index: 2000;
+        overflow-y: auto;  /* pour scroler le menu burger s'il est trop long */
+    }
+    .navbar .menu.open{
+        display: flex !important;  /* Affiche le menu vertical quand il est ouvert */
+    }
+    /* Le logo devient plus petit pour s'adapter à l'écran */
+    .navbar .logo {
+        font-size: 22px;
+    }
+}
 
-        padding: 15px;
-        text-align: center;
-        padding-top: 5px;
-        background-size:1400px;
-        background-position: center;
-        background-repeat: no-repeat;
-        height: 100px;
-}    
-}
-.produit{
-    border-radius: 20px;
-    border-top: 200px;  
-}
-.panier{
-    display: flex;
-}
+    
+    
+    
+    

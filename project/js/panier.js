@@ -1,3 +1,11 @@
+// Menu emburger
+function ouvrir() {
+    document.getElementById('menu').classList.add('open');
+}
+function fermeture() {
+    document.getElementById('menu').classList.remove('open');
+}
+
 // Au chargement de la page, affiche le panier
 window.onload = function() {
     // Récupère le panier depuis le localStorage ou crée un tableau vide

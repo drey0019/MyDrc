@@ -1,26 +1,25 @@
 body{
-    font-family: 'poppins',sans-serif;
+    /* font-family: 'poppins',sans-serif; */
     margin: 0;/*margin et padding ==0 : enlève mes marges par défaut */
     padding: 0;
    /* background: color #f9f9f9;*/
-    color: #333; 
-    
+    color: #333;   
 }
-
 * {
-    margin: 0;
+    /* margin: 0; */
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
 }
 
 .banner {
     width: 100%;
-    height: 30%;
+    height: 100%;
     background:url('../images/Fond7.JPG') no-repeat center center/cover;
     background-attachment: fixed;
     position: relative;
     overflow: hidden;
+    overflow-y: auto;
 }
 .banner h1{
     text-align: center;
@@ -28,12 +27,10 @@ body{
 }
 
 .navbar {
-   
-    padding: 20px 30px;
+    /* padding: 20px 30px; */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 20px var(--shadow);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -63,8 +60,9 @@ body{
 }
 
 .navbar .menu a {
+    /* font-size: 18px; */
     text-decoration: none;
-    color:rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
     font-weight: 600;
     padding: 12px 20px;
     border-radius: 25px;
@@ -74,7 +72,6 @@ body{
 }
 
 .navbar .menu a:hover {
-    color: var(--white);
     border-color: var(--gold);
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgb(0, 0, 0)
@@ -99,7 +96,7 @@ form{
     background: white;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 10px rgba(20, 1, 1, 0.15);
     max-width: 400px;
     margin: 20px auto;
     background-image: url(../images/Fond7.JPG);
@@ -134,43 +131,57 @@ form button{
 form button:hover{
     background-color: #2c2f33;
 }
-
+.p-De-connexion{
+    font-size: 20px;
+    
+}
 footer{
     background-color: #25242467;
-    color: white;
     text-align: center;
-    padding: 5px;
-    /* margin-top: 30px; */
+    padding: 1px;
+    margin-top: 30px; 
 }
+/* Affiche le menu burge sur téléphone */
+.affiche {
+    display: none;  /* Par défaut, le menu burger est caché */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2000;
+    cursor: pointer;
+}
+ 
 
  /*pour modifier l'affichage (pour le cataogue) sur le téléphone ou sur un autre appareil : */
-@media(max-width:768px){
-    .catalogue{
+@media(max-width:900px){
+    .affiche{
+        display: block;  /* Affiche le menu burger */
+    } 
+    .navbar {
         flex-direction: column;
-        align-items: center;
-            .logo-video{
-            width: 70px;
-        }
-    
+        align-items: flex-start;
+        padding: 10px 10px;
     }
-}    
+    .navbar .menu{
+        display: none;  /*cache le menu horizontal */
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        flex-direction: column;
+        width: 220px;
+        height: 120vh;
+        padding-top:60px;
+        z-index: 2000;
+        overflow-y: auto;  /* pour scroler le menu burger s'il est trop long */
+    }
+    .navbar .menu.open{
+        display: flex !important;  /* Affiche le menu vertical quand il est ouvert */
+    }
+    /* Le logo devient plus petit pour s'adapter à l'écran */
+    .navbar .logo {
+        font-size: 22px;
+    }
 
-    .header{
-
-        padding: 15px;
-        text-align: center;
-        padding-top: 5px;
-        background-size:1400px;
-        background-position: center;
-        background-repeat: no-repeat;
-        height: 100px;
-}
-
-.produit{
-    border-radius: 20px;
-    border-top: 200px;
-    
-}
-.panier{
-    display: flex;
 }
